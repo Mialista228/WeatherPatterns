@@ -5,6 +5,9 @@ import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertNull
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -12,6 +15,7 @@ import uz.ttpu.weatherpatterns.data.api.FakeWeatherApi
 import uz.ttpu.weatherpatterns.data.repository.WeatherRepository
 import uz.ttpu.weatherpatterns.mvi.model.WeatherIntent
 import uz.ttpu.weatherpatterns.mvi.viewmodel.WeatherMviViewModel
+
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class WeatherMviViewModelTest {
