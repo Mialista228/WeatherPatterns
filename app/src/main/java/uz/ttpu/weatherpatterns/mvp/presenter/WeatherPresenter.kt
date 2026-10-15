@@ -3,6 +3,7 @@ package uz.ttpu.weatherpatterns.mvp.presenter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import uz.ttpu.weatherpatterns.data.repository.WeatherRepository
 import uz.ttpu.weatherpatterns.mvp.WeatherContract
@@ -22,5 +23,7 @@ class WeatherPresenter(
                 .onFailure { view.showError(it.message ?: "Unknown error") }
         }
     }
-
+    fun destroy() {
+        scope.cancel()
+    }
 }

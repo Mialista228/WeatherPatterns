@@ -34,7 +34,8 @@ class MvpActivity : ComponentActivity(), WeatherContract.View {
     }
 
     override fun onDestroy() {
-        Log.d("MVP", "onDestroy  activity=${hashCode()}")
+        presenter.destroy()
+        Log.d("MVP", "onDestroy activity=${hashCode()}")
         super.onDestroy()
     }
 
